@@ -218,27 +218,28 @@ class _contact_intoState extends State<contact_into> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Expanded(
-                                      flex: 6,
-                                      child: TextFormField(
-                                        initialValue: globle.address1,
-                                        validator: (val) {
-                                          if (val!.isEmpty) {
-                                            return "Enter the address....";
-                                          } else {
-                                            return null;
-                                          }
-                                        },
-                                        onSaved: (val) {
-                                          globle.address1 = val;
-                                        },
-                                        textInputAction: TextInputAction.next,
-                                        decoration: InputDecoration(
-                                          hintText: "Address Line 1",
-                                          hintStyle: TextStyle(
-                                            color: Colors.grey,
-                                          ),
+                                    flex: 6,
+                                    child: TextFormField(
+                                      initialValue: globle.address1,
+                                      validator: (val) {
+                                        if (val!.isEmpty) {
+                                          return "Enter the address....";
+                                        } else {
+                                          return null;
+                                        }
+                                      },
+                                      onSaved: (val) {
+                                        globle.address1 = val;
+                                      },
+                                      textInputAction: TextInputAction.next,
+                                      decoration: InputDecoration(
+                                        hintText: "Address Line 1",
+                                        hintStyle: TextStyle(
+                                          color: Colors.grey,
                                         ),
-                                      )),
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                               SizedBox(
