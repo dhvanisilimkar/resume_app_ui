@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class globle {
   static String? name;
   static String? email;
@@ -6,5 +8,8 @@ class globle {
   static String? a2;
   static String? a3;
 
+  static File? image;
+
   static String? address1;
+  static String? address2;
 }

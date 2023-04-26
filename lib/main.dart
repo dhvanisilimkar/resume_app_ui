@@ -3,6 +3,7 @@ import 'package:resume_app_ui/utils/route_utils.dart';
 import 'package:resume_app_ui/views/Workspace.dart';
 import 'package:resume_app_ui/views/screen/Home_Page.dart';
 import 'package:resume_app_ui/views/screen/contact_into.dart';
+import 'package:resume_app_ui/views/screen/personal_details.dart';
 
 void main() => runApp(
       const Myapp(),
@@ -22,7 +23,7 @@ class Myapp extends StatelessWidget {
       routes: {
         MyRoutes.home: (context) => const Home_Page(),
         MyRoutes.Workspace: (context) => const Workspace(),
-        MyRoutes.buildOptions[0].route: (context) => contact_into(),
+        MyRoutes.buildOptions[0].route: (context) => contactinto(),
       },
     );
   }

@@ -17,7 +17,9 @@ class _Home_PageState extends State<Home_Page> {
     return Scaffold(
       appBar: AppBar(
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(30),
+          ),
         ),
         title: Column(
           children: [
@@ -27,9 +29,10 @@ class _Home_PageState extends State<Home_Page> {
             Text(
               "Resume Builder",
               style: TextStyle(
-                  fontSize: 27,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white),
+                fontSize: 27,
+                fontWeight: FontWeight.w700,
+                color: Colors.white,
+              ),
             ),
             SizedBox(
               height: s.height * 0.07,
