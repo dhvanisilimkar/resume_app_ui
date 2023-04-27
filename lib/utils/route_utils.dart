@@ -16,6 +16,7 @@ class MyRoutes {
   static String home = '/';
   static String Workspace = 'Workspace';
   static String contact_into = 'contact_into';
+  static String personal_details = 'personal_details';
 
   static List<BuildOption> buildOptions = [
     BuildOption(
@@ -23,13 +24,14 @@ class MyRoutes {
         name: "Contact Into",
         route: "contact_icon"),
     BuildOption(
-        icon: iconPath + "briefcase.png",
-        name: "Carrier Objective",
-        route: "contact_icon"),
+      icon: iconPath + "briefcase.png",
+      name: "Carrier Objective",
+      route: "contact_icon",
+    ),
     BuildOption(
         icon: iconPath + "user.png",
         name: "Personal Details",
-        route: "contact_icon"),
+        route: "personal_details"),
     BuildOption(
         icon: iconPath + "mortarboard.png",
         name: "Eduction",

@@ -102,7 +102,7 @@ class _personal_details extends State<contactinto> {
                       child: Container(
                         alignment: Alignment.center,
                         child: Text(
-                          "Phone",
+                          "Photo",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,

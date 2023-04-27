@@ -23,7 +23,8 @@ class Myapp extends StatelessWidget {
       routes: {
         MyRoutes.home: (context) => const Home_Page(),
         MyRoutes.Workspace: (context) => const Workspace(),
-        MyRoutes.buildOptions[0].route: (context) => contactinto(),
+        MyRoutes.buildOptions[0].route: (context) => const contactinto(),
+        MyRoutes.buildOptions[2].route: (context) => const personaldetails(),
       },
     );
   }

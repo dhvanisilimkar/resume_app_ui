@@ -11,12 +11,18 @@ class personaldetails extends StatefulWidget {
 }
 
 class _personaldetailsState extends State<personaldetails> {
-  int index = 0;
+  String? maritalStatus;
+  bool isChecked = false;
+  bool ispic = false;
+
+  RangeValues range = RangeValues(10, 50);
+  bool switchVal = false;
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    Size s = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -33,75 +39,154 @@ class _personaldetailsState extends State<personaldetails> {
           color: Colors.white,
         ),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        index = 0;
-                      });
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Contact",
-                        style: appBarTitleStyle,
-                      ),
-                      decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                                width: index == 0 ? 3 : 0, color: Colors.amber),
-                          ),
-                          color: Colors.blue),
-                    ),
+      backgroundColor: Colors.grey.shade300,
+      body: Padding(
+        padding: EdgeInsets.all(21),
+        child: Container(
+          width: s.width,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "DOB",
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700),
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: "DD/MM/YY",
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "Marital Status",
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700),
+              ),
+              RadioListTile(
+                value: "Single",
+                title: const Text(
+                  "Single",
+                  style: TextStyle(
+                    color: Colors.grey,
                   ),
                 ),
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        index = 1;
-                      });
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Photo",
-                        style: appBarTitleStyle,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                            width: index == 1 ? 3 : 0,
-                            color: Colors.amber,
-                          ),
-                        ),
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 10,
-            child: Padding(
-              padding: EdgeInsets.all(20),
-              child: IndexedStack(
-                index: index,
-                children: [
-                  Text("contact page"),
-                  Text("Photo"),
-                ],
+                subtitle: const Text("Yet free to live !!"),
+                tileColor: Colors.blue,
+                groupValue: maritalStatus,
+                onChanged: (val) {
+                  setState(() {
+                    maritalStatus = val;
+                  });
+                },
               ),
-            ),
+              RadioListTile(
+                value: "Married",
+                title: const Text(
+                  "Married",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.grey,
+                  ),
+                ),
+                subtitle: const Text("So far lost their freedomc!!"),
+                tileColor: Colors.blue,
+                groupValue: maritalStatus,
+                onChanged: (val) {
+                  setState(() {
+                    maritalStatus = val;
+                  });
+                },
+              ),
+              Text(
+                "Languages Known",
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700),
+              ),
+              CheckboxListTile(
+                value: isChecked,
+                controlAffinity: ListTileControlAffinity.leading,
+                title: const Text(
+                  "English",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+                subtitle:
+                    const Text("Second language English is also applicable !!"),
+                onChanged: (val) {
+                  setState(() {
+                    isChecked = val!;
+                  });
+                },
+              ),
+              CheckboxListTile(
+                value: isChecked,
+                controlAffinity: ListTileControlAffinity.leading,
+                title: const Text(
+                  "Hindi",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20,
+                    color: Colors.grey,
+                  ),
+                ),
+                subtitle:
+                    const Text("Second language English is also applicable !!"),
+                onChanged: (val) {
+                  setState(() {
+                    ispic = val!;
+                  });
+                },
+              ),
+              Text(
+                "Nationality",
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700),
+              ),
+              RangeSlider(
+                  min: 0,
+                  max: 100,
+                  values: range,
+                  labels: RangeLabels(
+                    range.start.toInt().toString(),
+                    range.end.toInt().toString(),
+                  ),
+                  onChanged: (val) {
+                    setState(() {
+                      range = val;
+                    });
+                  }),
+              Switch(
+                  value: switchVal,
+                  onChanged: (val) {
+                    setState(() {
+                      switchVal = val;
+                    });
+                  })
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
